@@ -1,0 +1,93 @@
+seed: 42
+constellation:
+  num_satellites: 100
+  num_planes: 10
+  satellites_per_plane: 10
+  altitude_km: 550.0
+  inclination_deg: 53.0
+  propagation: "keplerian"
+timestep_seconds: 5.0
+duration_seconds: 3600.0
+isl:
+  max_range_km: 5000.0
+  min_elevation_deg: 10.0
+ground_stations:
+  count: 12
+  placement: "config_list"
+  locations:
+    - name: "GS_London"
+      lat: 51.5074
+      lon: -0.1278
+      alt_km: 0.05
+    - name: "GS_NewYork"
+      lat: 40.7128
+      lon: -74.0060
+      alt_km: 0.01
+    - name: "GS_Tokyo"
+      lat: 35.6762
+      lon: 139.6503
+      alt_km: 0.04
+    - name: "GS_Sydney"
+      lat: -33.8688
+      lon: 151.2093
+      alt_km: 0.02
+    - name: "GS_SaoPaulo"
+      lat: -23.5505
+      lon: -46.6333
+      alt_km: 0.76
+    - name: "GS_Johannesburg"
+      lat: -26.2041
+      lon: 28.0473
+      alt_km: 1.75
+    - name: "GS_Frankfurt"
+      lat: 50.1109
+      lon: 8.6821
+      alt_km: 0.11
+    - name: "GS_Singapore"
+      lat: 1.3521
+      lon: 103.8198
+      alt_km: 0.01
+    - name: "GS_Mumbai"
+      lat: 19.0760
+      lon: 72.8777
+      alt_km: 0.01
+    - name: "GS_LosAngeles"
+      lat: 34.0522
+      lon: -118.2437
+      alt_km: 0.09
+    - name: "GS_Santiago"
+      lat: -33.4489
+      lon: -70.6693
+      alt_km: 0.57
+    - name: "GS_Cairo"
+      lat: 30.0444
+      lon: 31.2357
+      alt_km: 0.02
+traffic:
+  profile: "mixed"
+  priorities:
+    - "high"
+    - "medium"
+    - "low"
+  packet_size_bytes:
+    - 64
+    - 1500
+events:
+  enabled_types:
+    - "isl_failure"
+    - "sat_failure"
+    - "congestion"
+    - "weather_attenuation"
+  failure_rate_per_hour: 0.5
+export:
+  gat:
+    enabled: true
+    snapshot_interval_steps: 1
+  lstm:
+    enabled: true
+    window_size: 30
+    stride: 5
+    format: "parquet"
+logging:
+  level: "INFO"
+  structured: true

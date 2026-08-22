@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "satsim"
+version = "0.1.0"
+description = "Research-grade Python simulator of a 100-satellite LEO mega-constellation for GAT, LSTM, and RL datasets."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Antigravity Research", email = "research@antigravity.ai" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy==2.2.4",
+    "scipy==1.15.2",
+    "networkx==3.6.1",
+    "sgp4==2.27",
+    "torch==2.11.0",
+    "torch-geometric==2.8.0.post1",
+    "pandas==2.2.3",
+    "pyarrow==25.0.0",
+    "gymnasium==1.3.0",
+    "pydantic==2.13.4",
+    "pyyaml==6.0.3",
+    "structlog==26.1.0",
+    "tqdm==4.67.1",
+    "joblib==1.4.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "hypothesis==6.165.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["satsim*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
