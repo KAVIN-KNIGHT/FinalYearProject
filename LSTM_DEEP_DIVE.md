@@ -105,7 +105,6 @@ This project stacks **2 LSTM layers**. The `h_t` from Layer 1 becomes the `x_t` 
 - **Layer 2** captures higher-level patterns (gradual congestion build-up over 30 steps).
 
 ---
-
 ## 3. The Dataset â€” Source of Truth
 
 ### File Location
@@ -583,7 +582,6 @@ scheduler = ReduceLROnPlateau(
     patience=3      # wait 3 epochs before reducing
 )
 ```
-
 LR follows a staircase descent:
 - Start: LR = 0.001
 - After 3 epochs no improvement: LR = 0.0005
@@ -682,7 +680,6 @@ embedder = LSTMEmbedder(
     model_path  = "artifacts/lstm/lstm_best.pt",
     scaler_path = "artifacts/lstm/feature_scaler.pkl",
 )
-
 # Process ALL samples (train + val + test), batch_size=512:
 for batch in all_samples:
     x_scaled = feature_scaler.transform(batch.x)     # [512, 30, 24]
