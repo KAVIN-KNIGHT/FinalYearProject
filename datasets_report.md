@@ -32,11 +32,6 @@ c:/projects/Final year project 2/
 │   │   │       ├── gat_topology_attention.png         # Top 25% highest-attention ISL edges visualization
 │   │   │       ├── gat_embedding_visualization.png    # 2D PCA projection scatter of 128-D embeddings
 │   │   │       └── gat_embedding_similarity_heatmap.png # Pairwise satellite cosine similarity matrix
-│   │   └── corrected/                   # BASELINE: Prior Congestion-Prediction GAT baseline artifacts
-│   │       ├── gat_best.pt              # Congestion-prediction baseline checkpoint
-│   │       ├── feature_scaler.pkl       # Feature scaler
-│   │       ├── target_scaler.pkl        # Target scaler for congestion_score
-│   │       └── ...                      # Baseline metrics and plots
 │   └── lstm/                            # Long Short-Term Memory (LSTM) artifacts
 │       ├── lstm_best.pt                 # Best LSTM model weights checkpoint (20 epochs)
 │       ├── lstm_last.pt                 # Final epoch LSTM checkpoint
@@ -89,7 +84,6 @@ c:/projects/Final year project 2/
 │   ├── test_spatial_gat.py              # Dedicated unit tests for Spatial GAT 8+4 pipeline (9/9 passed)
 │   ├── test_gat_pipeline.py             # GAT 8+4 architecture and dataset tests (4/4 passed)
 │   ├── test_lstm_pipeline.py            # LSTM sequence and training tests
-│   ├── test_lstm_dataset.py             # Single consolidated CSV dataset validation tests
 │   └── ...                              # Orbital, topology, routing, and simulation engine tests
 ├── pyproject.toml                       # Pinned production dependencies (gymnasium, torch, torch_geometric, pydantic)
 ├── README.md                            # High-level project documentation
